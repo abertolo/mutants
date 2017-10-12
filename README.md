@@ -1,4 +1,4 @@
-#Mutantes
+# Mutantes
 
 ## Local
 
@@ -10,7 +10,7 @@ Instrucciones para correr la aplicación localmente
 - Mysql (v5.7.19)
 - Java 8
 
-####Realizar los siguientes pasos (situado en el directorio root del proyecto):
+#### Realizar los siguientes pasos (situado en el directorio root del proyecto):
 
 1. sudo mysql --password
 2. Crear la base de datos: create database db_mutants
