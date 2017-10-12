@@ -28,7 +28,7 @@ Levante una instancia EC2 de AWS. Para consumir la API utilizar el siguiente dom
 
 Ejemplo:
 
-1.POST: http://ec2-18-231-88-39.sa-east-1.compute.amazonaws.com:8080/mutants pasándole el siguiente json:
+1.POST: http://ec2-54-233-97-165.sa-east-1.compute.amazonaws.com:8080/mutants pasándole el siguiente json:
 
 {
    "dna":[
@@ -41,5 +41,5 @@ Ejemplo:
    ]
 }
 
-2.GET: http://ec2-18-231-88-39.sa-east-1.compute.amazonaws.com:8080/stats
+2.GET: http://ec2-54-233-97-165.sa-east-1.compute.amazonaws.com:8080/stats
 
