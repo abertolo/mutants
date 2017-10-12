@@ -9,6 +9,7 @@ import com.example.mutants.service.MutantsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -38,7 +39,15 @@ public class MutantsServiceImpl implements MutantsService {
             boolean isMutant = mutantsDetector.isMutant(dna);
             dnaSample = new DnaSample(dnaChain, isMutant);
             logger.info(String.format("Saving %s", dnaSample));
-            dnaSampleDao.save(dnaSample);
+            try {
+                dnaSampleDao.save(dnaSample);
+            } catch (DataIntegrityViolationException e) {
+                // Si llegamos a esta parte del código significa
+                // que otro thread intento guardar la misma secuencia de ADN al mismo
+                // tiempo. No hacemos nada ya que la muestra ya fue guardada por el
+                // otro thread.
+                logger.info("race condition when trying to save same dnaSample");
+            }
             return isMutant;
         }
     }
