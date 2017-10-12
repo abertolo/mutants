@@ -4,8 +4,8 @@ package com.example.mutants.utils;
  * Created by mnsantos on 10/11/17.
  */
 public class Coordinate {
-    int x;
-    int y;
+    private int x;
+    private int y;
 
     public Coordinate(int x, int y) {
         this.x = x;
